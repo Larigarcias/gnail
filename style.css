@@ -1,0 +1,894 @@
+/* Variáveis de Cores */
+:root {
+    --white: #ffffff;
+    --gray: #808080;
+    --dark-gray: #333333;
+    --custom-dark-gray: #4F4F4F;
+    --light-gray: #f5f5f5;
+    --accent-color: var(--custom-dark-gray);
+    /* NOVAS VARIÁVEIS DE FONTE */
+    --hero-h1-font: 'Playfair Display', Didot, "Times New Roman", serif; /* Para "Sua Marca de Unhas" */
+    --h2-font: 'Roboto Slab', Rockwell, "Courier New", serif; /* Para H2s (tópicos de seção) */
+    --nav-font: 'Roboto Slab', Rockwell, "Courier New", serif; /* Para links do menu */
+    /* Mantendo a fonte principal do corpo se necessário */
+    --body-font: 'Montserrat', sans-serif;
+}
+
+/* Reset Básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--body-font); /* Aplica a fonte principal do corpo */
+    line-height: 1.6;
+    color: var(--dark-gray);
+    background-color: var(--white);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* --- Hamburger Menu e Overlay --- */
+.hamburger {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: var(--white);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 1.8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1001;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+}
+
+.hamburger:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: auto;
+    max-height: 0;
+    background-color: var(--white);
+    z-index: 1000;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    border-radius: 10px;
+    margin-top: 60px;
+    margin-right: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.nav-overlay.active {
+    max-height: 500px;
+}
+
+.overlay-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 15px 20px;
+    width: 100%;
+    gap: 10px;
+    list-style: none; /* REMOVE OS MARCADORES DE LISTA */
+}
+
+.overlay-menu a {
+    color: var(--dark-gray);
+    font-size: 1.1em;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease, transform 0.3s ease;
+    padding: 5px 0;
+    font-family: var(--nav-font); /* APLICA A FONTE ROBOTO SLAB */
+}
+
+.overlay-menu a:hover {
+    color: var(--accent-color);
+    transform: translateX(-5px);
+}
+
+/* Header / Hero Section */
+.hero {
+    background-image: url('imagem-de-fundo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--dark-gray);
+    text-align: center;
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+}
+
+.hero > .container {
+    position: relative;
+    z-index: 3;
+}
+
+.hero h1 {
+    font-size: 5.0em;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    color: var(--white);
+    font-family: var(--hero-h1-font); /* APLICA A FONTE PLAYFAIR DISPLAY */
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+    color: var(--white);
+}
+
+.button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--white);
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.button:hover {
+    background-color: #3B3B3B;
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    animation: none; /* Para a pulsação no hover */
+}
+
+.button-bottom-margin {
+    margin-top: 50px;
+}
+
+/* Diminuindo o Primeiro Botão de Agendamento (Hero Section) */
+.hero .button {
+    padding: 12px 25px;
+    font-size: 1em;
+}
+
+/* Seções Gerais */
+section {
+    padding: 80px 0;
+    text-align: center;
+    position: relative;
+}
+
+section:nth-child(even) {
+    background-color: var(--light-gray);
+}
+
+/* TÍTULOS EM PRETO */
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    font-weight: 600;
+    color: var(--dark-gray);
+    position: relative;
+    display: inline-block; /* Permite que o ::after tenha largura do conteúdo */
+    font-family: var(--h2-font); /* APLICA A FONTE ROBOTO SLAB */
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 0; /* Alinha com a esquerda do texto h2 */
+    bottom: -10px;
+    width: 100%; /* Mesma largura do texto h2 */
+    height: 3px;
+    background-color: var(--accent-color);
+    transform-origin: center; /* Garante que a animação comece do centro */
+    transform: scaleX(0);
+    transition: transform 0.6s ease-out;
+}
+
+h2.is-visible::after {
+    transform: scaleX(1);
+}
+
+/* --- Quem Sou Eu Section (Com Imagem e Texto Lado a Lado) --- */
+.about-us .container.about-us-content {
+    display: flex;
+    flex-direction: column; /* Em mobile, fica em coluna */
+    align-items: center;
+    text-align: center;
+    gap: 40px; /* Espaçamento entre o título e o conteúdo principal */
+}
+
+.about-main-content { /* Wrapper para imagem e texto lado a lado */
+    display: flex;
+    flex-direction: column; /* Por padrão, em coluna para mobile */
+    align-items: center;
+    gap: 40px;
+    width: 100%;
+    max-width: 960px; /* Limite de largura para o bloco */
+}
+
+.about-us-image-wrapper { /* Novo wrapper para a imagem e o SVG */
+    position: relative;
+    width: 280px; /* Diâmetro do círculo externo */
+    height: 280px;
+    border-radius: 50%; /* Mantém a forma para consistência */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Importante para garantir que o SVG não vaze */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
+    flex-shrink: 0; /* Impede que a imagem encolha */
+}
+
+/* ESTILOS PARA O SVG E O CÍRCULO INTERNO */
+.circle-border-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ocupa a largura total do wrapper */
+    height: 100%; /* Ocupa a altura total do wrapper */
+    z-index: 0; /* Fica abaixo da imagem */
+    transform: rotate(-90deg); /* Rotaciona o SVG para o círculo começar de cima */
+    transform-origin: center;
+    opacity: 0; /* Inicia invisível */
+    transition: opacity 0.5s ease-out; /* Transição para a opacidade do SVG */
+}
+
+.circle-border-svg circle {
+    fill: transparent; /* Não preenche o círculo */
+    stroke: var(--accent-color); /* Cor da borda */
+    stroke-width: 2px; /* Espessura da borda agora é mais fina */
+    /* O stroke-dasharray será calculado dinamicamente no JS */
+    stroke-dashoffset: 1000; /* Um valor alto inicial, será ajustado pelo JS */
+    transition: stroke-dashoffset 1.5s ease-in-out; /* Animação de 1.5s */
+}
+
+/* Animação quando a seção fica visível */
+.about-us-image-wrapper.is-visible .circle-border-svg {
+    opacity: 1; /* Torna o SVG visível */
+}
+
+.about-us-image-wrapper.is-visible .circle-border-svg circle {
+    stroke-dashoffset: 0; /* Anima o dashoffset para 0, desenhando o círculo */
+}
+
+.about-us-image {
+    width: calc(100% - 20px); /* Ajuste para não tocar o SVG */
+    height: calc(100% - 20px); /* Ajuste para não tocar o SVG */
+    object-fit: cover; /* Recorta a imagem para preencher o círculo */
+    border-radius: 50%; /* Faz a imagem ser circular */
+    z-index: 1; /* Garante que a imagem esteja acima do SVG */
+}
+
+.about-us-text {
+    flex: 1; /* Permite que o texto ocupe o espaço restante */
+    text-align: center; /* Padrão para mobile */
+}
+
+.about-us-text p {
+    font-size: 1.1em;
+    color: var(--dark-gray);
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+/* Media Query para telas maiores (Desktop) */
+@media (min-width: 769px) {
+    .about-main-content {
+        flex-direction: row; /* Lado a lado em desktop */
+        justify-content: center;
+        align-items: flex-start; /* Alinha o topo da imagem/texto */
+        text-align: left; /* Alinha o texto à esquerda */
+    }
+    .about-us-image-wrapper {
+        margin-right: 40px; /* Espaçamento entre imagem e texto */
+        margin-left: 0; /* Remove o margin-auto de centralização */
+    }
+    .about-us-text {
+        text-align: left; /* Alinha o texto à esquerda em desktop */
+    }
+}
+
+/* --- Catálogo de Serviços - Carrossel Horizontal --- */
+.services .carousel-instruction {
+    text-align: center;
+    color: var(--gray);
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.services .carousel-instruction.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.horizontal-carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 960px;
+    height: 550px;
+    margin: 20px auto 0;
+    overflow: hidden; /* Mantém o overflow hidden para não mostrar slides fora da área */
+    display: flex;
+    align-items: center;
+    -webkit-overflow-scrolling: touch; /* Melhora o scroll em iOS */
+}
+
+.horizontal-carousel-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+    padding: 0 20px;
+    cursor: grab; /* Indica que pode arrastar/deslizar */
+}
+
+.horizontal-carousel-slide {
+    flex: 0 0 auto;
+    width: 300px;
+    height: 450px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 0 10px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    filter: grayscale(80%);
+    transform: scale(0.9);
+    opacity: 0.7;
+    transition: transform 0.4s ease-in-out, filter 0.4s ease-in-out, opacity 0.4s ease-in-out, z-index 0.01s linear 0.3s;
+}
+
+.horizontal-carousel-slide.active {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+    opacity: 1;
+    z-index: 10;
+}
+
+.horizontal-carousel-slide::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 50%);
+    z-index: 1;
+    opacity: 0.8;
+    transition: opacity 0.3s ease-out;
+}
+
+.horizontal-carousel-slide.active::before {
+    opacity: 0.4;
+}
+
+.service-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    color: var(--white);
+    padding: 20px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+    z-index: 2;
+}
+
+.horizontal-carousel-slide.active .service-content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-content h3 {
+    font-size: 1.8em;
+    margin-bottom: 5px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+.service-content p {
+    font-size: 1em;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 10px;
+}
+
+.service-content .price {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: var(--white);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+/* --- Estilos dos Botões do Carrossel --- */
+.carousel-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.carousel-button {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: var(--accent-color);
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.carousel-button:hover:not(:disabled) {
+    opacity: 1;
+    color: #3B3B3B;
+}
+
+.carousel-button:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+
+.carousel-button i {
+    vertical-align: middle;
+}
+
+/* --- Galeria de Fotos com Legendas (Resultados Incríveis) --- */
+.gallery-grid {
+    display: grid;
+    /* 3 colunas, cada uma com no mínimo 280px, e o restante do espaço dividido igualmente */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.gallery-grid figure {
+    width: 100%; /* Ocupa 100% da sua célula de grid */
+    height: auto; /* Altura automática para o conteúdo */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    background-color: var(--white);
+    cursor: pointer; /* Indica que é clicável */
+}
+
+.gallery-grid figure:hover {
+    transform: scale(1.03) rotate(1deg); /* Animação um pouco mais sutil ao hover */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-grid img {
+    width: 100%;
+    /* Ajustado para garantir que as imagens tenham a mesma altura */
+    height: 250px; /* Altura fixa para todas as imagens da galeria */
+    object-fit: cover; /* Recorta a imagem para preencher a área sem distorcer */
+    display: block;
+    border-radius: 8px 8px 0 0;
+    transition: transform 0.3s ease-out; /* Animação suave para hover */
+}
+
+.gallery-grid figure:hover img {
+    transform: scale(1.05); /* Pequeno zoom na imagem ao hover */
+}
+
+.gallery-grid figcaption {
+    background-color: var(--white);
+    color: var(--dark-gray);
+    padding: 10px 15px;
+    font-size: 1em;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid var(--light-gray);
+    border-radius: 0 0 8px 8px;
+}
+
+/* --- Custom Lightbox Styles --- */
+.custom-lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Acima de tudo */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-out, visibility 0.3s ease-out;
+}
+
+.custom-lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    max-width: 90vw; /* Não preenche a tela inteira */
+    max-height: 90vh; /* Não preenche a tela inteira */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transform: scale(0.8);
+    opacity: 0;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease-out;
+}
+
+.custom-lightbox.active .lightbox-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 2.5em;
+    color: var(--dark-gray);
+    cursor: pointer;
+    line-height: 1;
+    padding: 5px;
+    transition: color 0.2s ease;
+    z-index: 2001; /* Garante que o botão esteja acima da imagem */
+}
+
+.lightbox-close:hover {
+    color: var(--accent-color);
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 70vh; /* Para garantir que a imagem não seja muito grande */
+    display: block;
+    border-radius: 8px;
+    object-fit: contain; /* Garante que a imagem inteira seja visível */
+    margin-bottom: 15px;
+}
+
+.lightbox-content figcaption {
+    font-size: 1.1em;
+    color: var(--dark-gray);
+    text-align: center;
+    max-width: 80%; /* Para não ficar muito largo em telas grandes */
+}
+
+/* Localização */
+.location p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: var(--dark-gray);
+}
+
+.map-placeholder {
+    margin-top: 30px;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transform: scale(0.95);
+    transition: transform 0.8s ease-out;
+}
+
+.map-placeholder.is-visible {
+    transform: scale(1);
+}
+
+.map-placeholder iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark-gray);
+    color: var(--white);
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.9em;
+}
+
+/* --- Animações --- */
+/* Base para todas as animações */
+.animate-fade-in,
+.animate-slide-up,
+.animate-scale-in,
+.map-placeholder,
+.horizontal-carousel-container,
+h2,
+.carousel-instruction,
+.about-us-image-wrapper { /* Adicionei .about-us-image-wrapper aqui */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.animate-fade-in.is-visible,
+.animate-slide-up.is-visible,
+.animate-scale-in.is-visible, /* Mantido para gallery-grid figure */
+.map-placeholder.is-visible,
+.horizontal-carousel-container.is-visible,
+h2.is-visible,
+.carousel-instruction.is-visible,
+.about-us-image-wrapper.is-visible { /* Adicionei .about-us-image-wrapper aqui */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delays para animações sequenciais */
+.delay-0-1s { transition-delay: 0.1s; }
+.delay-0-2s { transition-delay: 0.2s; }
+.delay-0-3s { transition-delay: 0.3s; }
+.delay-0-4s { transition-delay: 0.4s; }
+.delay-0-5s { transition-delay: 0.5s; }
+.delay-0-6s { transition-delay: 0.6s; }
+.delay-0-7s { transition-delay: 0.7s; }
+.delay-0-8s { transition-delay: 0.8s; }
+.delay-0-9s { transition-delay: 0.9s; }
+.delay-1s { transition-delay: 1s; }
+.delay-1-5s { transition-delay: 1.5s; }
+
+/* KEYFRAMES PARA O BOTÃO PULSANTE */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.05); /* Ligeiramente maior */
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35); /* Sombra mais intensa */
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 992px) {
+    .horizontal-carousel-container {
+        max-width: 650px;
+        height: 500px;
+    }
+    .horizontal-carousel-slide {
+        width: 280px;
+        height: 420px;
+    }
+    .service-content h3 {
+        font-size: 1.6em;
+    }
+    .service-content p {
+        font-size: 0.9em;
+    }
+    .service-content .price {
+        font-size: 1.2em;
+    }
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Ajuste para tablets, 2 ou 3 colunas */
+    }
+    .gallery-grid img {
+        height: 180px; /* Ajusta a altura fixa para telas menores */
+    }
+    .nav-overlay {
+        width: 180px;
+        margin-right: 15px;
+        margin-top: 55px;
+        border-radius: 8px;
+    }
+    .overlay-menu a {
+        font-size: 1.05em;
+    }
+    /* Lightbox para tablets */
+    .lightbox-content {
+        max-width: 95vw;
+        max-height: 95vh;
+    }
+    .lightbox-content img {
+        max-height: 75vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5em;
+    }
+    .hero p {
+        font-size: 1.2em;
+    }
+    h2 {
+        font-size: 2em;
+    }
+    .button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+    /* Quem Sou Eu para celular: já é column e centrado */
+    .about-us-image-wrapper {
+        margin-right: 0; /* Remove a margem extra do desktop */
+    }
+
+    .horizontal-carousel-container {
+        width: 100%;
+        max-width: unset;
+        height: 450px;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .horizontal-carousel-track {
+        padding: 0 10px;
+    }
+    .horizontal-carousel-slide {
+        width: 280px;
+        height: 420px;
+        margin: 0 8px;
+    }
+
+    .carousel-buttons {
+        display: flex; /* Garante que os botões apareçam em telas menores */
+    }
+    .carousel-instruction {
+        margin-bottom: 10px; /* Reduz um pouco o espaço para os botões */
+    }
+    .horizontal-carousel-container {
+        margin-bottom: 10px; /* Reduz um pouco o espaço para os botões */
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr; /* Volta para uma coluna em celulares */
+        gap: 15px;
+    }
+    .gallery-grid img {
+        height: 200px; /* Ajusta a altura fixa para telas menores */
+    }
+
+    .animate-scale-in.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .nav-overlay {
+        width: 180px;
+        margin-right: 15px;
+        margin-top: 55px;
+        border-radius: 8px;
+    }
+    .overlay-menu a {
+        font-size: 1.1em;
+    }
+    /* Lightbox para celulares */
+    .lightbox-content {
+        max-width: 95vw;
+        max-height: 95vh;
+        padding: 15px;
+    }
+    .lightbox-content img {
+        max-height: 70vh;
+    }
+    .lightbox-close {
+        font-size: 2em;
+        top: 5px;
+        right: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2em;
+    }
+    .hero p {
+        font-size: 1em;
+    }
+    h2 {
+        font-size: 1.8em;
+    }
+    .horizontal-carousel-container {
+        padding: 0 5px;
+    }
+    .horizontal-carousel-track {
+        padding: 0;
+    }
+    .horizontal-carousel-slide {
+        width: 90vw;
+        max-width: 300px;
+        height: auto;
+        min-height: 380px;
+        margin: 0 5px;
+    }
+    .carousel-button {
+        font-size: 1.2em;
+        padding: 8px 12px;
+    }
+    .carousel-buttons {
+        gap: 10px;
+    }
+
+    .gallery-grid {
+        gap: 10px;
+    }
+    .gallery-grid figcaption {
+        font-size: 0.85em;
+        padding: 8px;
+    }
+
+    .hamburger {
+        top: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.5em;
+    }
+    .nav-overlay {
+        width: 150px;
+        margin-right: 10px;
+        margin-top: 45px;
+        border-radius: 6px;
+    }
+    .overlay-menu a {
+        font-size: 1em;
+    }
+}
+
+/* Impede que o conteúdo do body role quando o menu overlay ou lightbox está ativo */
+body.no-scroll {
+    overflow: hidden;
+}

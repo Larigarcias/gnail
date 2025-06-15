@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sua Marca de Unhas Perfeitas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto+Slab:wght@400;600&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <button class="hamburger" id="hamburgerMenu">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <nav class="nav-overlay" id="navOverlay">
+        <ul class="overlay-menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#quem-sou-eu">Quem Sou Eu</a></li>
+            <li><a href="#catalogo">Catálogo</a></li>
+            <li><a href="#resultados">Resultados</a></li>
+            <li><a href="#contato">Endereço</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero" id="home" style="background-image: url('imagem-de-fundo.jpg');">
+        <div class="container">
+            <h1 class="animate-fade-in delay-0-3s">Sua Marca de Unhas</h1>
+            <p class="animate-fade-in delay-0-6s">Especialista em Alongamentos e Manutenção</p>
+            <a href="https://wa.me/5541999998888" target="_blank" class="button animate-scale-in delay-1s">Agende seu Horário</a>
+        </div>
+    </header>
+
+    <section class="about-us" id="quem-sou-eu">
+        <div class="container about-us-content">
+            <h2 class="animate-fade-in delay-0-1s">Quem Sou Eu</h2>
+            <div class="about-main-content"> <div class="about-us-image-wrapper animate-scale-in delay-0-3s">
+                    <svg class="circle-border-svg" viewBox="0 0 100 100">
+                        <circle cx="50" cy="50" r="48" stroke-dasharray="0" stroke-dashoffset="0"></circle>
+                    </svg>
+                    <img src="quem-sou-eu.jpg.JPG" alt="Foto de Perfil [Seu Nome]" class="about-us-image">
+                </div>
+                
+                <div class="about-us-text animate-fade-in delay-0-5s">
+                    <p>Olá! Sou [Seu Nome], e minha paixão é transformar unhas em verdadeiras obras de arte. Com anos de experiência no universo da nail art e alongamentos, me dedico a oferecer serviços de manicure e pedicure que elevam sua autoestima e duram mais tempo.</p>
+                    <p>Meu compromisso é com a saúde e a beleza das suas unhas, utilizando produtos de alta qualidade e as técnicas mais inovadoras do mercado. Seja para um visual clássico, um alongamento elegante em gel ou fibra de vidro, ou uma nail art deslumbrante, estou aqui para realizar seus desejos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="catalogo">
+        <div class="container">
+            <h2 class="animate-fade-in">Nosso Catálogo de Serviços</h2>
+            <p class="carousel-instruction animate-fade-in">Arraste para o lado ou use os botões</p>
+            <div class="horizontal-carousel-container animate-fade-in">
+                <div class="horizontal-carousel-track" id="horizontalCarouselTrack">
+                    <div class="service-item horizontal-carousel-slide" data-index="0" style="background-image: url('unhas-gel.jpg');">
+                        <div class="service-content">
+                            <h3>Manicure Completa</h3>
+                            <p>Cutilagem, esmaltação e hidratação para mãos perfeitas.</p>
+                            <span class="price">R$ 45,00</span>
+                        </div>
+                    </div>
+                    <div class="service-item horizontal-carousel-slide" data-index="1" style="background-image: url('unhas-gel-dois.jpg');">
+                        <div class="service-content">
+                            <h3>Pedicure Spa</h3>
+                            <p>Relaxamento profundo com esfoliação e massagem.</p>
+                            <span class="price">R$ 70,00</span>
+                        </div>
+                    </div>
+                    <div class="service-item horizontal-carousel-slide" data-index="2" style="background-image: url('unhas-gel-tres.jpg');">
+                        <div class="service-content">
+                            <h3>Unhas de Gel</h3>
+                            <p>Alongamento e esmaltação em gel para durabilidade e brilho.</p>
+                            <span class="price">R$ 120,00</span>
+                        </div>
+                    </div>
+                    <div class="service-item horizontal-carousel-slide" data-index="3" style="background-image: url('unhas-gel-quatro.jpg');">
+                        <div class="service-content">
+                            <h3>Fibra de Vidro</h3>
+                            <p>Unhas resistentes, naturais e com acabamento impecável.</p>
+                            <span class="price">R$ 150,00</span>
+                        </div>
+                    </div>
+                    <div class="service-item horizontal-carousel-slide" data-index="4" style="background-image: url('unhas-gel-cinco.jpg');">
+                        <div class="service-content">
+                            <h3>Esmaltação em Gel</h3>
+                            <p>Cores duradouras e brilho intenso sem lascar.</p>
+                            <span class="price">R$ 70,00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-buttons">
+                <button class="carousel-button prev" id="carouselPrevBtn">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-button next" id="carouselNextBtn">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            <a href="https://wa.me/5541999998888" target="_blank" class="button button-bottom-margin animate-slide-up delay-1-5s">Agende seu Horário Agora!</a>
+        </div>
+    </section>
+
+    <section class="gallery" id="resultados">
+        <div class="container">
+            <h2 class="animate-fade-in">Resultados Incríveis</h2>
+            <div class="gallery-grid">
+                <figure class="animate-scale-in delay-0-1s">
+                    <img src="francesinha.jpg" alt="Unhas com francesinha" data-caption="Unhas com francesinha clássica.">
+                    <figcaption>Francesinha Clássica</figcaption>
+                </figure>
+                <figure class="animate-scale-in delay-0-2s">
+                    <img src="unha-comprida.jpg" alt="Alongamento de unhas em gel" data-caption="Alongamento em gel com efeito natural.">
+                    <figcaption>Alongamento em Gel</figcaption>
+                </figure>
+                <figure class="animate-scale-in delay-0-3s">
+                    <img src="unhas-decoradas.jpg" alt="Nail art com glitter" data-caption="Nail art com glitter e detalhes delicados.">
+                    <figcaption>Nail Art Glitter</figcaption>
+                </figure>
+                <figure class="animate-scale-in delay-0-4s">
+                    <img src="unhas-vermelhas.jpg" alt="Unhas vermelhas vibrantes" data-caption="Esmaltação vermelha vibrante e impecável.">
+                    <figcaption>Vermelho Paixão</figcaption>
+                </figure>
+                <figure class="animate-scale-in delay-0-5s">
+                    <img src="unha-azul.jpg" alt="Unhas decoradas com flores" data-caption="Decoração floral delicada para um toque de primavera.">
+                    <figcaption>Unhas Florais</figcaption>
+                </figure>
+                <figure class="animate-scale-in delay-0-6s">
+                    <img src="unhas-nude.jpg" alt="Manicure com esmalte nude" data-caption="Manicure clássica com esmalte nude.">
+                    <figcaption>Manicure Nude</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <div class="custom-lightbox" id="customLightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose">×</button>
+            <img src="" alt="" id="lightboxImage">
+            <figcaption id="lightboxCaption"></figcaption>
+        </div>
+    </div>
+
+    <section class="location" id="contato">
+        <div class="container">
+            <h2 class="animate-fade-in">Localização</h2>
+            <p class="animate-fade-in delay-0-1s">Rua Exemplo, 123 - Centro, Ponta Grossa - PR</p>
+            <p class="animate-fade-in delay-0-2s">Atendimento com horário agendado.</p>
+            <div class="map-placeholder animate-fade-in delay-0-4s">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.9161748202573!2d-50.15878132514101!3d-25.09706323861217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e81561f103598f%3A0x6b49e0c700d1e34!2sRua%20Exemplo%2C%20123%20-%20Centro%2C%20Ponta%20Grossa%20-%20PR!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <a href="https://wa.me/5541999998888" target="_blank" class="button button-bottom-margin animate-slide-up delay-1s">Fale Conosco pelo WhatsApp</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>© 2024 Sua Marca de Unhas. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>>
